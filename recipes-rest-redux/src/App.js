@@ -22,8 +22,8 @@ const App = () => {
         <Navigation />
 
         <Switch>
-          <Route path="/" exact component={RecipeList} />
           <Route path="/create" exact component={CreateRecipe} />
+          <Route path="/" exact component={RecipeList} />
         </Switch>
       </BrowserRouter>
     </Provider>

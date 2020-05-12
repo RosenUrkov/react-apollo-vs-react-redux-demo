@@ -1,14 +1,11 @@
 import React from 'react';
+import classes from './RecipeIngredient.module.css';
 
 const RecipeIngredient = props => {
   const { quantity, name } = props;
 
   return (
-    <div>
-      <div>Ingredient</div>
-      <div>{name}</div>
-      <div>{quantity}</div>
-    </div>
+    <div className={classes.RecipeIngredient}>{name + ' - ' + quantity}</div>
   );
 };
 

@@ -43,7 +43,7 @@ export const getRecipes = () => {
   };
 };
 
-export const createRecipe = recipe => {
+export const createRecipe = (recipe, onSuccessCb) => {
   return dispatch => {
     dispatch(requestInit());
 
@@ -53,7 +53,10 @@ export const createRecipe = recipe => {
       headers: { 'Content-Type': 'application/json' }
     })
       .then(res => res.json())
-      .then(data => dispatch(createRecipeSuccess(data)))
+      .then(data => {
+        dispatch(createRecipeSuccess(data));
+        onSuccessCb();
+      })
       .catch(err => dispatch(requestFail(err)));
   };
 };

@@ -1,18 +1,21 @@
 import React from 'react';
 import RecipeIngredient from '../RecipeIngredient/RecipeIngredient';
+import classes from './RecipeDetails.module.css';
 
 const RecipeDetails = props => {
-  const { name, steps, ingredients } = props;
+  const { name, ingredients } = props;
 
   return (
-    <div>
-      <div>Recipe</div>
-      <div>{name}</div>
-      <div>{steps}</div>
+    <div className={[classes.RecipeDetails, classes.Scrollbar].join(' ')}>
+      <div className={classes.Name}>{name}</div>
 
-      {ingredients.map(ing => (
-        <RecipeIngredient key={ing.id} {...ing} />
-      ))}
+      <br />
+
+      <div className={classes.IngredientsWrapper}>
+        {ingredients.map(ing => (
+          <RecipeIngredient key={ing.id} {...ing} />
+        ))}
+      </div>
     </div>
   );
 };

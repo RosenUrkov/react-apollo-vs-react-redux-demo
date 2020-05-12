@@ -1,0 +1,84 @@
+.CreateRecipe {
+    padding: 10px 30%;
+    width: 40%;
+}
+
+.CreateRecipe .Header {
+    text-align: center;
+    text-decoration: underline;
+}
+
+.CreateRecipe .Label {
+    font-size: 20px;
+}
+
+.CreateRecipe .Input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.CreateRecipe .IngredientsArea {
+    padding-top: 20px;
+}
+
+.CreateRecipe .AddedIngredientsWrapper {
+    margin: 15px 0;
+    width: 30%;
+}
+
+.CreateRecipe .IngredientsArea .AddIngredientForm {
+    display: flex;
+    justify-content: space-between;
+}
+
+.CreateRecipe .IngredientsArea .IngredientView {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.CreateRecipe .IngredientsArea .IngredientView .Input {
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.CreateRecipe .IngredientsArea .IngredientView .IngredientsSeparator {
+    font-size: 26px;
+    margin: 5px;
+}
+
+.CreateRecipe .IngredientsArea .AddIngredientButton {
+    width: 30%;
+    background-color: rgb(63, 123, 163);
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    /* float: right */
+}
+
+.CreateRecipe .Submit {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.CreateRecipe .Submit:hover {
+    background-color: #45a049;
+}
