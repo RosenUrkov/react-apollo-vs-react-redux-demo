@@ -7,7 +7,6 @@ const typeDefs = gql`
     id: ID!
     name: String!
     ingredients: [Ingredient]!
-    steps: [String]
   }
 
   type Ingredient {
@@ -19,7 +18,6 @@ const typeDefs = gql`
   input RecipeInput {
     name: String!
     ingredients: [IngredientInput]!
-    steps: [String]
   }
 
   input IngredientInput {
