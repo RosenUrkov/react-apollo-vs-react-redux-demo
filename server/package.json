@@ -1,0 +1,19 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start-graphql": "nodemon ./server-graphql.js",
+    "start-rest": "nodemon ./server-rest.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-server": "^2.13.1",
+    "graphql": "^15.0.0",
+    "nodemon": "^2.0.3",
+    "uuid": "^8.0.0"
+  }
+}

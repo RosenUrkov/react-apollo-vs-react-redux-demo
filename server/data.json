@@ -1,0 +1,160 @@
+[{
+        "id": "74d68e04-26ba-4d1b-9402-2c27dc377687",
+        "name": "Crock Pot Roast",
+        "ingredients": [{
+                "quantity": "1",
+                "id": "bf2f818d-b6b0-4e2a-8388-a332e71a73b3",
+                "name": " beef roast"
+            },
+            {
+                "quantity": "1 package",
+                "id": "a6f2f150-2e9b-4cf9-8fe8-b0e578b52972",
+                "name": "brown gravy mix"
+            },
+            {
+                "quantity": "1 package",
+                "id": "b4b918c9-f586-4da1-afdc-488cfff69cf7",
+                "name": "dried Italian salad dressing mix"
+            },
+            {
+                "quantity": "1 package",
+                "id": "e3127336-df18-49cf-9d54-1ecca456f95e",
+                "name": "dry ranch dressing mix"
+            },
+            {
+                "quantity": "1/2 cup",
+                "id": "13a1624d-f855-4988-9ffd-1133475277b8",
+                "name": "water"
+            }
+        ],
+        "steps": [
+            "Place beef roast in crock pot.",
+            "Mix the dried mixes together in a bowl and sprinkle over the roast.",
+            "Pour the water around the roast.",
+            "Cook on low for 7-9 hours."
+        ]
+    },
+    {
+        "id": "65ca84f4-b3a0-4400-b454-365ce33e8440",
+        "name": "Roasted Asparagus",
+        "ingredients": [{
+                "quantity": "1 lb",
+                "id": "bf2f818d-b6b0-4e2a-8388-a332e71a73b3",
+                "name": " asparagus"
+            },
+            {
+                "quantity": "1 1/2 tbsp",
+                "id": "13a1624d-f855-4988-9ffd-1133475277b8",
+                "name": "olive oil"
+            },
+            {
+                "quantity": "1/2 tsp",
+                "id": "a6f2f150-2e9b-4cf9-8fe8-b0e578b52972",
+                "name": "kosher salt"
+            }
+        ],
+        "steps": [
+            "Preheat oven to 425°F.",
+            "Cut off the woody bottom part of the asparagus spears and discard.",
+            "With a vegetable peeler, peel off the skin on the bottom 2-3 inches of the spears (this keeps the asparagus from being all.\",string.\", and if you eat asparagus you know what I mean by that).",
+            "Place asparagus on foil-lined baking sheet and drizzle with olive oil.",
+            "Sprinkle with salt.",
+            "With your hands, roll the asparagus around until they are evenly coated with oil and salt.",
+            "Roast for 10-15 minutes, depending on the thickness of your stalks and how tender you like them.",
+            "They should be tender when pierced with the tip of a knife.",
+            "The tips of the spears will get very brown but watch them to prevent burning.",
+            "They are great plain, but sometimes I serve them with a light vinaigrette if we need something acidic to balance out our meal."
+        ]
+    },
+    {
+        "id": "bda8210f-b3a8-433e-9efd-2fe37aeae629",
+        "name": "Curried Lentils and Rice",
+        "ingredients": [{
+                "quantity": "1 quart",
+                "id": "b4b918c9-f586-4da1-afdc-488cfff69cf7",
+                "name": "beef broth"
+            },
+            {
+                "quantity": "1 cup",
+                "id": "74d68e04-26ba-4d1b-9402-2c27dc377687",
+                "name": "dried green lentils"
+            },
+            {
+                "quantity": "1/2 cup",
+                "id": "65ca84f4-b3a0-4400-b454-365ce33e8440",
+                "name": "basmati rice"
+            },
+            {
+                "quantity": "1 tsp",
+                "id": "13a1624d-f855-4988-9ffd-1133475277b8",
+                "name": "curry powder"
+            },
+            {
+                "quantity": "1 tsp",
+                "id": "bf2f818d-b6b0-4e2a-8388-a332e71a73b3",
+                "name": "salt"
+            }
+        ],
+        "steps": [
+            "Bring broth to a low boil.",
+            "Add curry powder and salt.",
+            "Cook lentils for 20 minutes.",
+            "Add rice and simmer for 20 minutes.",
+            "Enjoy!"
+        ]
+    },
+    {
+        "id": "b83c96e8-94d2-4603-b301-4a03c7f8191b",
+        "name": "Big Night Pizza",
+        "ingredients": [{
+                "quantity": "5 teaspoons",
+                "id": "a6f2f150-2e9b-4cf9-8fe8-b0e578b52972",
+                "name": "yeast"
+            },
+            {
+                "quantity": "5 cups",
+                "id": "bf2f818d-b6b0-4e2a-8388-a332e71a73b3",
+                "name": "flour"
+            },
+            {
+                "quantity": "4 tablespoons",
+                "id": "13a1624d-f855-4988-9ffd-1133475277b8",
+                "name": "vegetable oil"
+            },
+            {
+                "quantity": "2 tablespoons",
+                "id": "e3127336-df18-49cf-9d54-1ecca456f95e",
+                "name": "sugar"
+            },
+            {
+                "quantity": "2 teaspoons",
+                "id": "b4b918c9-f586-4da1-afdc-488cfff69cf7",
+                "name": "salt"
+            },
+            {
+                "quantity": "2 cups",
+                "id": "74d68e04-26ba-4d1b-9402-2c27dc377687",
+                "name": "hot water"
+            },
+            {
+                "quantity": "1/4 cup",
+                "id": "bda8210f-b3a8-433e-9efd-2fe37aeae629",
+                "name": "pizza sauce"
+            },
+            {
+                "quantity": "3/4 cup",
+                "id": "746e788f-a9a8-42c7-a898-eb849ae10a14",
+                "name": "mozzarella cheese"
+            }
+        ],
+        "steps": [
+            "Add hot water to yeast in a large bowl and let sit for 15 minutes.",
+            "Mix in oil, sugar, salt, and flour and let sit for 1 hour.",
+            "Knead the dough and spread onto a pan.",
+            "Spread pizza sauce and sprinkle cheese.",
+            "Add any optional toppings as you wish.",
+            "Bake at 400 deg Fahrenheit for 15 minutes.",
+            "Enjoy!"
+        ]
+    }
+]
