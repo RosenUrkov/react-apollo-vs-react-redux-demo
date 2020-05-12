@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
-import { createRecipe } from '../../../Store/actions';
-import { connect } from 'react-redux';
 import RecipeIngredient from '../RecipeIngredient/RecipeIngredient';
 import classes from './CreateRecipe.module.css';
 import Loader from '../../Common/Loader/Loader';
 
 const CreateRecipe = props => {
-  const { createRecipe, loading, error } = props;
+  const { loading, error } = {};
 
   const [recipeName, setRecipeName] = useState('');
   const [ingredientName, setIngredientName] = useState('');
@@ -38,7 +36,6 @@ const CreateRecipe = props => {
     event.preventDefault();
 
     const recipe = { name: recipeName, ingredients };
-    createRecipe(recipe, () => props.history.push('/'));
   };
 
   return (
@@ -106,19 +103,4 @@ const CreateRecipe = props => {
     </>
   );
 };
-
-const mapStateToProps = state => {
-  return {
-    loading: state.loading,
-    error: state.error
-  };
-};
-
-const mapDispatchToProps = dispatch => {
-  return {
-    createRecipe: (recipe, onSuccessCb) =>
-      dispatch(createRecipe(recipe, onSuccessCb))
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(CreateRecipe);
+export default CreateRecipe;

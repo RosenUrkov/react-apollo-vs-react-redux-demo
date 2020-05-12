@@ -1,0 +1,15 @@
+.RecipesList {
+    display: flex;
+    flex-flow: column;
+}
+
+.RecipesList .Header {
+    text-align: center;
+    text-decoration: underline;
+}
+
+.RecipesWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
