@@ -1,12 +1,30 @@
 import React, { useState } from 'react';
-import { createRecipe } from '../../../Store/actions';
-import { connect } from 'react-redux';
 import RecipeIngredient from '../RecipeIngredient/RecipeIngredient';
 import classes from './CreateRecipe.module.css';
 import Loader from '../../Common/Loader/Loader';
+import { useMutation, useApolloClient } from '@apollo/react-hooks';
+import { CREATE_RECIPE } from '../../../ApiProvider/mutations';
+import { GET_RECIPES, NEW_RECIPES } from '../../../ApiProvider/queries';
 
 const CreateRecipe = props => {
-  const { createRecipe, loading, error } = props;
+  const [createRecipe, { loading, error }] = useMutation(CREATE_RECIPE, {
+    update: (cache, { data }) => {
+      const query = cache.readQuery({ query: GET_RECIPES });
+      const recipes = [...query.getRecipes, data.addRecipe];
+      cache.writeQuery({ query: GET_RECIPES, data: { getRecipes: recipes } });
+
+      const newRecipesQuery = cache.readQuery({ query: NEW_RECIPES });
+      const updatedNewRecipes = [
+        ...newRecipesQuery.newRecipes,
+        data.addRecipe.id
+      ];
+      cache.writeQuery({
+        query: NEW_RECIPES,
+        data: { newRecipes: updatedNewRecipes }
+      });
+    },
+    onCompleted: () => props.history.push('/')
+  });
 
   const [recipeName, setRecipeName] = useState('');
   const [ingredientName, setIngredientName] = useState('');
@@ -38,7 +56,7 @@ const CreateRecipe = props => {
     event.preventDefault();
 
     const recipe = { name: recipeName, ingredients };
-    createRecipe(recipe, () => props.history.push('/'));
+    createRecipe({ variables: { recipe } });
   };
 
   return (
@@ -107,18 +125,4 @@ const CreateRecipe = props => {
   );
 };
 
-const mapStateToProps = state => {
-  return {
-    loading: state.loading,
-    error: state.error
-  };
-};
-
-const mapDispatchToProps = dispatch => {
-  return {
-    createRecipe: (recipe, onSuccessCb) =>
-      dispatch(createRecipe(recipe, onSuccessCb))
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(CreateRecipe);
+export default CreateRecipe;
