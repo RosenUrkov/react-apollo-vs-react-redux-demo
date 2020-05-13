@@ -3,11 +3,18 @@ import RecipeIngredient from '../RecipeIngredient/RecipeIngredient';
 import classes from './RecipeDetails.module.css';
 
 const RecipeDetails = props => {
-  const { name, ingredients } = props;
+  const { name, ingredients, isNew } = props;
+
+  const recipeDetailsClasses = isNew
+    ? [classes.RecipeDetails, classes.Scrollbar, classes.NewRecipe]
+    : [classes.RecipeDetails, classes.Scrollbar];
 
   return (
-    <div className={[classes.RecipeDetails, classes.Scrollbar].join(' ')}>
-      <div className={classes.Name}>{name}</div>
+    <div className={recipeDetailsClasses.join(' ')}>
+      <div className={classes.Header}>
+        <div className={classes.Name}>{name}</div>
+        {isNew && <span className={classes.NewIndicator}>New</span>}
+      </div>
 
       <br />
 

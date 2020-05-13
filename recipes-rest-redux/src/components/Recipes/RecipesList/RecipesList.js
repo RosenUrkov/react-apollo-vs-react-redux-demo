@@ -6,7 +6,7 @@ import RecipeDetails from '../RecipeDetails/RecipeDetails';
 import classes from './RecipesList.module.css';
 
 const RecipesList = props => {
-  const { getRecipes, recipes, loading, error } = props;
+  const { getRecipes, recipes, newRecipes, loading, error } = props;
 
   useEffect(() => {
     if (!recipes) {
@@ -21,12 +21,17 @@ const RecipesList = props => {
     return <div>Recipes can't be loaded!</div>;
   }
 
+  const isNewRecipe = id => newRecipes.includes(id);
+
   return (
     <div className={classes.RecipesList}>
       <h2 className={classes.Header}>Recipes</h2>
 
       <div className={classes.RecipesWrapper}>
-        {recipes && recipes.map(rec => <RecipeDetails key={rec.id} {...rec} />)}
+        {recipes &&
+          recipes.map(rec => (
+            <RecipeDetails key={rec.id} isNew={isNewRecipe(rec.id)} {...rec} />
+          ))}
       </div>
     </div>
   );
@@ -35,6 +40,7 @@ const RecipesList = props => {
 const mapStateToProps = state => {
   return {
     recipes: state.recipes,
+    newRecipes: state.newRecipes,
     loading: state.loading,
     error: state.error
   };

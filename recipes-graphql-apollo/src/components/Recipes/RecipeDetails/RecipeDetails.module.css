@@ -6,10 +6,19 @@
     transition: 0.3s;
 }
 
-.RecipeDetails .Name {
-    padding-left: 5px;
-    font-weight: bold;
+.RecipeDetails .Header {
     font-style: italic;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 5px;
+}
+
+.RecipeDetails .Name {
+    font-weight: bold;
+}
+
+.RecipeDetails .NewIndicator {
+    font-family: auto;
 }
 
 .RecipeDetails .IngredientsWrapper {
@@ -20,6 +29,10 @@
 
 .RecipeDetails:hover {
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.NewRecipe {
+    box-shadow: 0 2px 16px 0 green
 }
 
 .Scrollbar {
