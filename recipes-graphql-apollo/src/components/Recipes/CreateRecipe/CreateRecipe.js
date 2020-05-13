@@ -1,14 +1,12 @@
 import React, { useState } from 'react';
+import { createRecipe } from '../../../Store/actions';
+import { connect } from 'react-redux';
 import RecipeIngredient from '../RecipeIngredient/RecipeIngredient';
 import classes from './CreateRecipe.module.css';
 import Loader from '../../Common/Loader/Loader';
-import { useMutation } from '@apollo/react-hooks';
-import { CREATE_RECIPE } from '../../../ApiProvider/mutations';
 
 const CreateRecipe = props => {
-  const [createRecipe, { loading, error }] = useMutation(CREATE_RECIPE, {
-    onCompleted: () => props.history.push('/')
-  });
+  const { createRecipe, loading, error } = props;
 
   const [recipeName, setRecipeName] = useState('');
   const [ingredientName, setIngredientName] = useState('');
@@ -40,7 +38,7 @@ const CreateRecipe = props => {
     event.preventDefault();
 
     const recipe = { name: recipeName, ingredients };
-    createRecipe({ variables: { recipe } });
+    createRecipe(recipe, () => props.history.push('/'));
   };
 
   return (
@@ -108,4 +106,19 @@ const CreateRecipe = props => {
     </>
   );
 };
-export default CreateRecipe;
+
+const mapStateToProps = state => {
+  return {
+    loading: state.loading,
+    error: state.error
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    createRecipe: (recipe, onSuccessCb) =>
+      dispatch(createRecipe(recipe, onSuccessCb))
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(CreateRecipe);
