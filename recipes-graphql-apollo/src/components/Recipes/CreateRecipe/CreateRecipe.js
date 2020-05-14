@@ -1,16 +1,21 @@
-import React, { useState } from 'react';
-import { createRecipe } from '../../../Store/actions';
-import { connect } from 'react-redux';
-import RecipeIngredient from '../RecipeIngredient/RecipeIngredient';
-import classes from './CreateRecipe.module.css';
-import Loader from '../../Common/Loader/Loader';
+import React, { useState } from "react";
+import RecipeIngredient from "../RecipeIngredient/RecipeIngredient";
+import classes from "./CreateRecipe.module.css";
+import Loader from "../../Common/Loader/Loader";
+import { useMutation } from "@apollo/react-hooks";
+import { ADD_RECIPE, ADD_NEW_RECIPE } from "../../../ApiProvider/mutations";
 
-const CreateRecipe = props => {
-  const { createRecipe, loading, error } = props;
+const CreateRecipe = (props) => {
+  const [addNewRecipe] = useMutation(ADD_NEW_RECIPE);
+  const [createRecipe, { loading, error }] = useMutation(ADD_RECIPE, {
+    update: (_, { data }) =>
+      addNewRecipe({ variables: { recipe: { ...data.addRecipe } } }),
+    onCompleted: () => props.history.push("/"),
+  });
 
-  const [recipeName, setRecipeName] = useState('');
-  const [ingredientName, setIngredientName] = useState('');
-  const [ingredientQuantity, setIngredientQuantity] = useState('');
+  const [recipeName, setRecipeName] = useState("");
+  const [ingredientName, setIngredientName] = useState("");
+  const [ingredientQuantity, setIngredientQuantity] = useState("");
 
   const [ingredients, setIngredients] = useState([]);
 
@@ -21,24 +26,24 @@ const CreateRecipe = props => {
     return <div>We could not create the recipe!</div>;
   }
 
-  const handleRecipeNameChange = ev => setRecipeName(ev.target.value);
-  const handleIngredientNameChange = ev => setIngredientName(ev.target.value);
-  const handleIngredientQuantityChange = ev =>
+  const handleRecipeNameChange = (ev) => setRecipeName(ev.target.value);
+  const handleIngredientNameChange = (ev) => setIngredientName(ev.target.value);
+  const handleIngredientQuantityChange = (ev) =>
     setIngredientQuantity(ev.target.value);
 
   const handleIngredientAdded = () => {
     const ingredient = { name: ingredientName, quantity: ingredientQuantity };
 
-    setIngredientName('');
-    setIngredientQuantity('');
-    setIngredients(prevIngs => [...prevIngs, ingredient]);
+    setIngredientName("");
+    setIngredientQuantity("");
+    setIngredients((prevIngs) => [...prevIngs, ingredient]);
   };
 
-  const handleSubmit = event => {
+  const handleSubmit = (event) => {
     event.preventDefault();
 
     const recipe = { name: recipeName, ingredients };
-    createRecipe(recipe, () => props.history.push('/'));
+    createRecipe({ variables: { recipe } });
   };
 
   return (
@@ -59,14 +64,14 @@ const CreateRecipe = props => {
           <label className={classes.Label}>Recipe ingredients:</label>
           <div className={classes.AddedIngredientsWrapper}>
             {ingredients.length ? (
-              ingredients.map(ing => (
+              ingredients.map((ing) => (
                 <RecipeIngredient
-                  key={ing.name + '-' + ing.quantity}
+                  key={ing.name + "-" + ing.quantity}
                   {...ing}
                 />
               ))
             ) : (
-              <div style={{ fontStyle: 'italic' }}>No ingredients added</div>
+              <div style={{ fontStyle: "italic" }}>No ingredients added</div>
             )}
           </div>
 
@@ -107,18 +112,4 @@ const CreateRecipe = props => {
   );
 };
 
-const mapStateToProps = state => {
-  return {
-    loading: state.loading,
-    error: state.error
-  };
-};
-
-const mapDispatchToProps = dispatch => {
-  return {
-    createRecipe: (recipe, onSuccessCb) =>
-      dispatch(createRecipe(recipe, onSuccessCb))
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(CreateRecipe);
+export default CreateRecipe;
